@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<!-- 
+  Please see the license.html file included with this distribution for 
+  attribution and copyright information.
+-->
+
+<root>
+	<!-- General combat tracker window -->
+	<windowclass name="combattracker_host">
+		<frame>ctbox</frame>
+		<sizelimits>
+			<minimum width="400" height="400" />
+			<dynamic />
+		</sizelimits>
+		<softclose />
+		<sheetdata>
+			<windowtitlebar name="title">
+				<resource>ct_window_title</resource>
+			</windowtitlebar>
+			<anchor_title_ctbox name="contentanchor" />
+
+			<anchor_ctbox_host_header name="headeranchor" />
+			<frame_ctbox_host_header_visibility name="header_vis" />
+			<button_ctbox_host_header_visibility name="button_global_visibility" />
+
+			<anchor_ct_host_label_right name="rightanchor" />
+			<spacer_ct_host_header_buttons name="spacer_buttons_header" />
+			<label_ct_header_init name="label_init" />
+			<label_ct_header_name name="label_name" />
+				
+			<list_ctbox_host name="list" />
+			<scrollbar_list name="scrollbar_list" />
+			
+			<button_ct_setactive name="button_setactive" />
+			<button_ct_nextactor name="button_nextactor" />
+
+			<button_ct_faction_friend name="button_faction_friend" />
+			<button_ct_faction_neutral name="button_faction_neutral" />
+			<button_ct_faction_foe name="button_faction_foe" />
+		
+			<button_ct_menu name="button_menu" />
+
+			<label_ct_host_rounds name="label_round" />
+			<number_ct_host_rounds name="round" />
+			<button_ct_nextround name="button_nextround" />
+			
+			<resize_ctbox />
+			<helper_ct />
+			<close_ctbox />
+		</sheetdata>
+	</windowclass>
+</root>

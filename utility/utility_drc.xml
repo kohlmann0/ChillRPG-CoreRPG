@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<!-- 
+  Please see the license.html file included with this distribution for 
+  attribution and copyright information.
+-->
+
+<root>
+	<template name="button_drc_diceskin_custom">
+		<buttoncontrol>
+			<anchored to="custom" position="over" />
+			<disabled />
+		</buttoncontrol>
+	</template>
+	<template name="button_drc_diceskin_default">
+		<buttoncontrol>
+			<anchored to="default" position="over" />
+			<disabled />
+		</buttoncontrol>
+	</template>
+
+	<windowclass name="drclist">
+		<frame>utilitybox</frame>
+		<placement>
+			<nosave />
+		</placement>
+		<sizelimits>
+			<minimum width="530" height="400" />
+			<dynamic />
+		</sizelimits>
+		<script>
+			function onInit()
+				for k,v in pairs(DiceRollManager.getDiceSkinKeys()) do
+					list.createWindow().setData(k, v);
+				end
+			end
+		</script>
+		<sheetdata>
+			<windowtitlebar_utilitybox name="title" />
+			<windowmenubar_utilitybox name="menubar" />
+
+			<anchor_content_utilitybox_top />
+			<anchor_content_utilitybox_bottom />
+
+			<filter_content_bottom name="filter" />
+
+			<list_utility_setting_labeled name="list">
+				<class>drc_item</class>
+			</list_utility_setting_labeled>
+			<scrollbar_list name="scrollbar_list" />
+
+			<anchor_list_content_label_left />
+			<anchor_list_content_label_right />
+			<spacer_list_content_label_right name="label_spacer">
+				<anchored width="35" />
+			</spacer_list_content_label_right>
+			<label_list_content_centered_right name="label_custom">
+				<static textres="custom" />
+			</label_list_content_centered_right>
+			<spacer_list_content_label_right name="label_spacer2">
+				<anchored width="25" />
+			</spacer_list_content_label_right>
+			<label_list_content_centered_right name="label_default">
+				<static textres="drc_list_label_default" />
+			</label_list_content_centered_right>
+			<spacer_list_content_label_right name="label_spacer3">
+				<anchored width="30" />
+			</spacer_list_content_label_right>
+			<label_list_content_noframe name="label_name">
+				<static textres="drc_list_label_name" />
+			</label_list_content_noframe>
+
+			<resize_utilitybox />
+		</sheetdata>
+	</windowclass>
+
+	<windowclass name="drc_item">
+		<margins control="0,0,0,5"/>
+		<script file="utility/scripts/drc_item.lua" />
+		<sheetdata>
+			<label name="name">
+				<anchored position="insidetopleft" offset="5,25" height="20">
+					<right parent="" offset="-215"/>
+				</anchored>
+			</label>
+
+			<genericcontrol name="default">
+				<anchored position="insidetopright" offset="120,5" width="60" height="60" />
+				<frame>groupbox</frame>
+			</genericcontrol>
+			<buttonc_checkbox name="button_usedefault">
+				<anchored to="default" position="lefthigh" offset="0,20" width="20" height="20" />
+				<tooltip textres="drc_item_button_usedefault" />
+				<script>
+					function onValueChanged()
+						window.onUseDefaultChanged();
+					end
+				</script>
+			</buttonc_checkbox>
+
+			<genericcontrol name="custom">
+				<anchored position="insidetopright" offset="35,5" width="60" height="60" />
+				<frame>groupbox</frame>
+				<tooltip textres="drc_item_button_clear" />
+				<script>
+					function onClickDown(...)
+						return window.onCustomClickDown(...);
+					end
+					function onClickRelease(...)
+						window.onCustomClickRelease(...);
+					end
+					function onDrop(x, y, draginfo)
+						return window.onCustomDrop(draginfo);
+					end
+				</script>
+			</genericcontrol>
+			<buttoncontrol name="button_custom_clear">
+				<anchored to="custom" position="lefthigh" offset="0,20" width="20" height="20" />
+				<state icon="button_deleteconfirm" />
+				<tooltip textres="drc_item_button_custom_clear" />
+				<invisible />
+				<script>
+					function onButtonPress()
+						window.onCustomClear();
+					end
+				</script>
+			</buttoncontrol>
+
+			<button_collapse_expand_toggle name="button_modes_toggle">
+				<anchored position="insidetopright" offset="5,25" />
+				<invisible />
+				<script>
+					function onValueChanged()
+						window.updateModesDisplay();
+					end
+				</script>
+			</button_collapse_expand_toggle>
+			<windowlist name="list_modes">
+				<anchored position="insidetopright" offset="30,70">
+					<left anchor="right" offset="-200" />
+				</anchored>
+				<frame name="headersimple" offset="5,3,5,3" />
+				<class>drc_item_mode</class>
+			</windowlist>
+		</sheetdata>
+	</windowclass>
+
+	<windowclass name="drc_item_mode">
+		<margins control="0,0,0,5"/>
+		<script file="utility/scripts/drc_item_mode.lua" />
+		<sheetdata>
+			<label name="name">
+				<anchored position="insidetopleft" offset="5,25" height="20">
+					<right parent="" offset="-90"/>
+				</anchored>
+			</label>
+
+			<genericcontrol name="custom">
+				<anchored position="insidetopright" offset="5,5" width="60" height="60" />
+				<frame>groupbox</frame>
+				<tooltip textres="drc_item_button_clear" />
+				<script>
+					function onClickDown(...)
+						return window.onCustomClickDown(...);
+					end
+					function onClickRelease(...)
+						window.onCustomClickRelease(...);
+					end
+					function onDrop(x, y, draginfo)
+						return window.onCustomDrop(draginfo);
+					end
+				</script>
+			</genericcontrol>
+			<buttoncontrol name="button_custom_clear">
+				<anchored to="custom" position="lefthigh" offset="0,20" width="20" height="20" />
+				<state icon="button_deleteconfirm" />
+				<tooltip textres="drc_item_button_custom_clear" />
+				<invisible />
+				<script>
+					function onButtonPress()
+						window.onCustomClear();
+					end
+				</script>
+			</buttoncontrol>
+		</sheetdata>
+	</windowclass>
+</root>

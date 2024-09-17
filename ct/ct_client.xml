@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<!-- 
+  Please see the license.html file included with this distribution for 
+  attribution and copyright information.
+-->
+
+<root>
+	<!-- General combat tracker window -->
+	<windowclass name="combattracker_client">
+		<frame>ctbox</frame>
+		<sizelimits>
+			<minimum width="400" height="400" />
+			<dynamic />
+		</sizelimits>
+		<softclose />
+		<script file="ct/scripts/clientct_window.lua" />
+		<sheetdata>
+			<windowtitlebar name="title">
+				<resource>ct_window_title</resource>
+			</windowtitlebar>
+			<anchor_title_ctbox name="contentanchor" />
+
+			<anchor_ctbox_client_header name="headeranchor" />
+			<anchor_ct_client_label_right name="rightanchor" />
+			<spacer_ct_client_header_buttons name="spacer_buttons_header" />
+			<label_ct_header_init name="label_init" />
+			<label_ct_header_name name="label_name" />
+
+			<list_ctbox_client name="list" />
+			<scrollbar_list name="scrollbar_list" />
+			
+			<button_ct_endturn name="turn_complete" />
+			
+			<label_ct_client_rounds name="label_round" />
+			<number_ct_client_rounds name="round" />
+
+			<resize_ctbox />
+			<helper_ct />
+			<close_ctbox />
+		</sheetdata>
+	</windowclass>
+</root>

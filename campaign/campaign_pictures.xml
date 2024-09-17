@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<!-- 
+  Please see the license.html file included with this distribution for 
+  attribution and copyright information.
+-->
+
+<root>
+	<template name="picture_record">
+		<genericcontrol>
+			<anchored width="25" height="25" />
+			<script file="campaign/scripts/picture_record.lua" />
+			<!-- <widgetsize>25</widgetsize> -->
+		</genericcontrol>
+	</template>
+	<template name="picture_record_header">
+		<picture_record>
+			<anchored to="rightanchor">
+				<top offset="1" />
+				<right parent="rightanchor" relation="relative" offset="-2" postoffset="-2" />
+			</anchored>
+		</picture_record>
+	</template>
+	<template name="picture_charsheet">
+		<genericcontrol>
+			<anchored to="leftanchor" width="45" height="45">
+				<top />
+				<left relation="relative" offset="5" postoffset="5" />
+			</anchored>
+			<script file="campaign/scripts/picture_charsheet.lua" />
+			<!-- <portraitsize>45</portraitsize> -->
+			<!-- <widgetsize>20</widgetsize> -->
+		</genericcontrol>
+	</template>
+
+	<template name="asset_picture">
+		<tokenfield>
+			<frame name="fielddark" offset="5,5,5,5" />
+			<script file="campaign/scripts/picture_asset.lua" />
+		</tokenfield>
+	</template>
+	<template name="button_picture_iadd">
+		<button_iadd_base>
+			<anchored position="insidebottomright" offset="-5,-5" />
+			<invisible />
+			<script>
+				function onButtonPress()
+					RecordAssetManager.handleAssetAdd(target and target[1]);
+				end
+			</script>
+		</button_iadd_base>
+	</template>
+	<template name="button_picture_idelete">
+		<button_idelete_base>
+			<anchored position="insidebottomright" offset="-5,-5" />
+			<script>
+				function onButtonPress()
+					if getValue() == 0 then
+						window[target[1]].setValue("");
+					end
+				end
+			</script>
+		</button_idelete_base>
+	</template>
+	<template name="button_portrait_iadd">
+		<button_iadd_base>
+			<anchored position="insidebottomright" offset="-5,-5" />
+			<script>
+				function onButtonPress()
+					local w = Interface.openWindow("portrait_select", "");
+					if w then
+						w.setLocalNode(window.getDatabaseNode());
+					end
+				end
+			</script>
+		</button_iadd_base>
+	</template>
+	<template name="button_record_picture_share">
+		<button_icon>
+			<anchored position="insidetopright" offset="-5,-5" />
+			<state icon="button_toolbar_share_public" tooltipres="pictures_tooltip_share" />
+			<tintable />
+			<script>
+				function onInit()
+					if super and super.onInit then super.onInit(); end
+					setVisible(DB.isOwner(window.getDatabaseNode()));
+				end
+				function onButtonPress()
+					if PictureManager.shareRecordPicture(window.getDatabaseNode()) then
+						UtilityManager.getTopWindow(window).close();
+					end
+				end
+			</script>
+		</button_icon>
+	</template>
+	<template name="button_picture_map_center">
+		<button_icon>
+			<anchored width="20" height="20">
+				<top parent="token" anchor="center" offset="-10" />
+				<left anchor="center" offset="-10" />
+			</anchored>
+			<icon normal="button_toolbar_target" />
+			<tooltip textres="pictures_tooltip_map_center" />
+			<tintable />
+			<script>
+				function onInit()
+					super.onInit();
+					
+					local bShow = false;
+					local nodeCT = ActorManager.getCTNode(window.getDatabaseNode());
+					if nodeCT and CombatManager.getTokenFromCT(nodeCT) then
+						bShow = true;
+					end
+					setVisible(bShow);
+				end
+				function onButtonPress()
+					if CombatManager.openMap(window.getDatabaseNode()) then
+						UtilityManager.getTopWindow(window).close();
+					end
+				end
+			</script>
+		</button_icon>
+	</template>
+
+	<windowclass name="pictures">
+		<frame>utilitybox</frame>
+		<sizelimits>
+			<minimum width="400" height="500" />
+			<dynamic />
+		</sizelimits>
+		<script>
+			function onInit()
+				local sRecordType = WindowManager.getRecordType(self);
+				local sContentClassByRecord = string.format("pictures_content_%s", sRecordType);
+				if Interface.isWindowClass(sContentClassByRecord) then
+					content.setValue(sContentClassByRecord, getDatabasePath());
+				else
+					content.setValue("pictures_content", getDatabasePath());
+				end
+			end
+			function onLockChanged()
+				if content.subwindow and content.subwindow.onLockChanged then
+					content.subwindow.onLockChanged();
+				end
+			end
+		</script>
+		<sheetdata>
+			<windowtitlebar_utilitybox name="title" />
+			<windowmenubar_utilitybox name="menubar" />
+			
+			<anchor_content_utilitybox_top />
+			<anchor_content_utilitybox_bottom />
+
+			<sub_content_framed_groupbox name="content" />
+
+			<resize_utilitybox />
+		</sheetdata>
+	</windowclass>
+	<windowclass name="pictures_content">
+		<script>
+			function onLockChanged()
+				picture.onLockChanged();
+				token.onLockChanged();
+				token3Dflat.onLockChanged();
+			end
+		</script>
+		<sheetdata>
+			<asset_picture name="picture">
+				<anchored position="insidetop" offset="-20,30">
+					<bottom offset="-150" />
+				</anchored>
+			</asset_picture>
+			<label name="picture_label">
+				<anchored to="picture" position="above" />
+				<center />
+				<static textres="pictures_label_picture" />
+			</label>
+			<button_picture_iadd name="picture_iadd">
+				<anchored to="picture" />
+				<target>picture</target>
+			</button_picture_iadd>
+			<button_picture_idelete name="picture_idelete">
+				<anchored to="picture" />
+				<target>picture</target>
+			</button_picture_idelete>
+			<button_record_picture_share name="button_share_picture">
+				<anchored to="picture" />
+				<target>picture</target>
+			</button_record_picture_share>
+
+			<asset_picture name="token">
+				<anchored position="insidebottomleft" offset="20,20" width="100" height="100" />
+			</asset_picture>
+			<label name="token_label">
+				<anchored to="token" position="above" />
+				<center />
+				<static textres="pictures_label_token" />
+			</label>
+			<button_picture_iadd name="token_iadd">
+				<anchored to="token" />
+				<target>token</target>
+			</button_picture_iadd>
+			<button_picture_idelete name="token_idelete">
+				<anchored to="token" />
+				<target>token</target>
+			</button_picture_idelete>
+
+			<asset_picture name="token3Dflat">
+				<anchored position="insidebottomright" offset="20,20" width="100" height="100" />
+			</asset_picture>
+			<label name="token3Dflat_label">
+				<anchored to="token3Dflat" position="above" />
+				<center />
+				<static textres="pictures_label_token_camera" />
+				<tooltip textres="pictures_tooltip_token_camera" />
+			</label>
+			<button_picture_iadd name="token3Dflat_iadd">
+				<anchored to="token3Dflat" />
+				<target>token3Dflat</target>
+			</button_picture_iadd>
+			<button_picture_idelete name="token3Dflat_idelete">
+				<anchored to="token3Dflat" />
+				<target>token3Dflat</target>
+			</button_picture_idelete>
+
+			<button_picture_map_center name="button_map_center" />
+		</sheetdata>
+	</windowclass>
+	<windowclass name="pictures_content_charsheet">
+		<script>
+			function onLockChanged()
+				token.onLockChanged();
+				token3Dflat.onLockChanged();
+			end
+		</script>
+		<sheetdata>
+			<genericcontrol name="portrait">
+				<anchored position="insidetop" offset="-20,30">
+					<bottom offset="-150" />
+				</anchored>
+				<frame name="fielddark" offset="5,5,5,5" />
+				<script>
+					function onInit()
+						setIcon("portrait_" .. DB.getName(window.getDatabaseNode()) .. "_charlist", true);
+					end
+					function onClickDown(button, x, y)
+						return true;
+					end
+					function onClickRelease(button, x, y)
+						window.portrait_iadd.onButtonPress();
+						return true;
+					end
+					function onDrop(x, y, draginfo)
+						return RecordAssetManager.handleCharPortraitDrop(window.getDatabaseNode(), draginfo);
+					end
+				</script>
+			</genericcontrol>
+			<label name="portrait_label">
+				<anchored to="portrait" position="above" />
+				<center />
+				<static textres="pictures_label_portrait" />
+			</label>
+			<button_portrait_iadd name="portrait_iadd">
+				<anchored to="portrait" />
+			</button_portrait_iadd>
+
+			<asset_picture name="token">
+				<anchored position="insidebottomleft" offset="20,20" width="100" height="100" />
+			</asset_picture>
+			<label name="token_label">
+				<anchored to="token" position="above" />
+				<center />
+				<static textres="pictures_label_token" />
+			</label>
+			<button_picture_iadd name="token_iadd">
+				<anchored to="token" />
+				<target>token</target>
+			</button_picture_iadd>
+			<button_picture_idelete name="token_idelete">
+				<anchored to="token" />
+				<target>token</target>
+			</button_picture_idelete>
+
+			<asset_picture name="token3Dflat">
+				<anchored position="insidebottomright" offset="20,20" width="100" height="100" />
+			</asset_picture>
+			<label name="token3Dflat_label">
+				<anchored to="token3Dflat" position="above" />
+				<center />
+				<static textres="pictures_label_token_camera" />
+				<tooltip textres="pictures_tooltip_token_camera" />
+			</label>
+			<button_picture_iadd name="token3Dflat_iadd">
+				<anchored to="token3Dflat" />
+				<target>token3Dflat</target>
+			</button_picture_iadd>
+			<button_picture_idelete name="token3Dflat_idelete">
+				<anchored to="token3Dflat" />
+				<target>token3Dflat</target>
+			</button_picture_idelete>
+
+			<button_picture_map_center name="button_map_center" />
+		</sheetdata>
+	</windowclass>
+</root>

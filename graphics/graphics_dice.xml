@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<!-- 
+  Please see the license.html file included with this distribution for 
+  attribution and copyright information.
+-->
+
+<root>
+	<!-- Dice Chat/Field Icons -->
+	<!-- NOTE: Colored die icons generated using Photoshop adjustment layer with Colorize option enabled -->
+	<!-- NOTE: Hue/Saturation/Lightness (Green: 120/50/25) (Blue: 240/70/25) (Purple: 260/50/25) (Red: 0/70/20) -->
+	<icon name="die_general_icon" file="graphics/dice/die_general_icon.png" />
+	<icon name="d4icon" file="graphics/dice/d4_icon.png" />
+	<icon name="d6icon" file="graphics/dice/d6_icon.png" />
+	<icon name="d8icon" file="graphics/dice/d8_icon.png" />
+	<icon name="d10icon" file="graphics/dice/d10_icon.png" />
+	<icon name="d12icon" file="graphics/dice/d12_icon.png" />
+	<icon name="d20icon" file="graphics/dice/d20_icon.png" />
+
+	<icon name="d4ricon" file="graphics/dice/d4_ricon.png" />
+	<icon name="d6ricon" file="graphics/dice/d6_ricon.png" />
+	<icon name="d8ricon" file="graphics/dice/d8_ricon.png" />
+	<icon name="d10ricon" file="graphics/dice/d10_ricon.png" />
+	<icon name="d12ricon" file="graphics/dice/d12_ricon.png" />
+	<icon name="d20ricon" file="graphics/dice/d20_ricon.png" />
+
+	<icon name="d4gicon" file="graphics/dice/d4_gicon.png" />
+	<icon name="d6gicon" file="graphics/dice/d6_gicon.png" />
+	<icon name="d8gicon" file="graphics/dice/d8_gicon.png" />
+	<icon name="d10gicon" file="graphics/dice/d10_gicon.png" />
+	<icon name="d12gicon" file="graphics/dice/d12_gicon.png" />
+	<icon name="d20gicon" file="graphics/dice/d20_gicon.png" />
+
+	<icon name="d4bicon" file="graphics/dice/d4_bicon.png" />
+	<icon name="d6bicon" file="graphics/dice/d6_bicon.png" />
+	<icon name="d8bicon" file="graphics/dice/d8_bicon.png" />
+	<icon name="d10bicon" file="graphics/dice/d10_bicon.png" />
+	<icon name="d12bicon" file="graphics/dice/d12_bicon.png" />
+	<icon name="d20bicon" file="graphics/dice/d20_bicon.png" />
+
+	<icon name="d4picon" file="graphics/dice/d4_picon.png" />
+	<icon name="d6picon" file="graphics/dice/d6_picon.png" />
+	<icon name="d8picon" file="graphics/dice/d8_picon.png" />
+	<icon name="d10picon" file="graphics/dice/d10_picon.png" />
+	<icon name="d12picon" file="graphics/dice/d12_picon.png" />
+	<icon name="d20picon" file="graphics/dice/d20_picon.png" />
+
+	<!-- Desktop Dice Selection Icons -->
+	<icon name="diceselect_desktop_d20" file="graphics/dice/diceselect_d20.png" />
+	<icon name="diceselect_desktop_d12" file="graphics/dice/diceselect_d12.png" />
+	<icon name="diceselect_desktop_d10" file="graphics/dice/diceselect_d10.png" />
+	<icon name="diceselect_desktop_d8" file="graphics/dice/diceselect_d8.png" />
+	<icon name="diceselect_desktop_d6" file="graphics/dice/diceselect_d6.png" />
+	<icon name="diceselect_desktop_d4" file="graphics/dice/diceselect_d4.png" />
+	<icon name="diceselect_desktop_dF" file="graphics/dice/diceselect_d6.png" />
+	<icon name="diceselect_desktop_d100" file="graphics/dice/diceselect_d10.png" />
+	
+	<!-- Dice Skin Icons -->
+	<icon name="diceskin_icon_default" file="graphics/dice/diceskin_icon_default.png" />
+	<icon name="diceskin_icon_element_arcane" file="graphics/dice/diceskin_icon_element_arcane.png" />
+	<icon name="diceskin_icon_element_earth" file="graphics/dice/diceskin_icon_element_earth.png" />
+	<icon name="diceskin_icon_element_fire" file="graphics/dice/diceskin_icon_element_fire.png" />
+	<icon name="diceskin_icon_element_frost" file="graphics/dice/diceskin_icon_element_frost.png" />
+	<icon name="diceskin_icon_element_life" file="graphics/dice/diceskin_icon_element_life.png" />
+	<icon name="diceskin_icon_element_light" file="graphics/dice/diceskin_icon_element_light.png" />
+	<icon name="diceskin_icon_element_lightning" file="graphics/dice/diceskin_icon_element_lightning.png" />
+	<icon name="diceskin_icon_element_shadow" file="graphics/dice/diceskin_icon_element_shadow.png" />
+	<icon name="diceskin_icon_element_storm" file="graphics/dice/diceskin_icon_element_storm.png" />
+	<icon name="diceskin_icon_element_water" file="graphics/dice/diceskin_icon_element_water.png" />
+	<icon name="diceskin_icon_metal_darkgold" file="graphics/dice/diceskin_icon_metal_darkgold.png" />
+	<icon name="diceskin_icon_metal_gold" file="graphics/dice/diceskin_icon_metal_gold.png" />
+	<icon name="diceskin_icon_metal_pitted" file="graphics/dice/diceskin_icon_metal_pitted.png" />
+	<icon name="diceskin_icon_metal_polishedsilver" file="graphics/dice/diceskin_icon_metal_polishedsilver.png" />
+	<icon name="diceskin_icon_metal_rustediron" file="graphics/dice/diceskin_icon_metal_rustediron.png" />
+	<icon name="diceskin_icon_metal_stainedcopper" file="graphics/dice/diceskin_icon_metal_stainedcopper.png" />
+	<icon name="diceskin_icon_metal_steel" file="graphics/dice/diceskin_icon_metal_steel.png" />
+	<icon name="diceskin_icon_metal_tintable" file="graphics/dice/diceskin_icon_metal_tintable.png" />
+
+	<icon name="diceskin_icon_decorative_base" file="graphics/dice/diceskin_icon_decorative_base.png" />
+	<icon name="diceskin_icon_decorative_base_inverted" file="graphics/dice/diceskin_icon_decorative_base_inverted.png" />
+	<icon name="diceskin_icon_decorative_bark" file="graphics/dice/diceskin_icon_decorative_bark.png" />
+	<icon name="diceskin_icon_decorative_bark_inverted" file="graphics/dice/diceskin_icon_decorative_bark_inverted.png" />
+	<icon name="diceskin_icon_decorative_gold_antique" file="graphics/dice/diceskin_icon_decorative_gold_antique.png" />
+	<icon name="diceskin_icon_decorative_gold_antique_inverted" file="graphics/dice/diceskin_icon_decorative_gold_antique_inverted.png" />
+	<icon name="diceskin_icon_decorative_gold_green" file="graphics/dice/diceskin_icon_decorative_gold_green.png" />
+	<icon name="diceskin_icon_decorative_gold_green_inverted" file="graphics/dice/diceskin_icon_decorative_gold_green_inverted.png" />
+	<icon name="diceskin_icon_decorative_gold_white" file="graphics/dice/diceskin_icon_decorative_gold_white.png" />
+	<icon name="diceskin_icon_decorative_gold_white_inverted" file="graphics/dice/diceskin_icon_decorative_gold_white_inverted.png" />
+	<icon name="diceskin_icon_decorative_iron" file="graphics/dice/diceskin_icon_decorative_iron.png" />
+	<icon name="diceskin_icon_decorative_iron_inverted" file="graphics/dice/diceskin_icon_decorative_iron_inverted.png" />
+	<icon name="diceskin_icon_decorative_storm" file="graphics/dice/diceskin_icon_decorative_storm.png" />
+	<icon name="diceskin_icon_decorative_storm_inverted" file="graphics/dice/diceskin_icon_decorative_storm_inverted.png" />
+	<icon name="diceskin_icon_decorative_water" file="graphics/dice/diceskin_icon_decorative_water.png" />
+	<icon name="diceskin_icon_decorative_water_inverted" file="graphics/dice/diceskin_icon_decorative_water_inverted.png" />
+
+	<icon name="diceskin_icon_artificer_base" file="graphics/dice/diceskin_icon_artificer_base.png" />
+	<icon name="diceskin_icon_artificer_bark" file="graphics/dice/diceskin_icon_artificer_bark.png" />
+	<icon name="diceskin_icon_artificer_darkgold" file="graphics/dice/diceskin_icon_artificer_darkgold.png" />
+	<icon name="diceskin_icon_artificer_gold" file="graphics/dice/diceskin_icon_artificer_gold.png" />
+	<icon name="diceskin_icon_artificer_greengilt" file="graphics/dice/diceskin_icon_artificer_greengilt.png" />
+	<icon name="diceskin_icon_artificer_greeniron" file="graphics/dice/diceskin_icon_artificer_greeniron.png" />
+	<icon name="diceskin_icon_artificer_liquiddream" file="graphics/dice/diceskin_icon_artificer_liquiddream.png" />
+	<icon name="diceskin_icon_artificer_nightshade" file="graphics/dice/diceskin_icon_artificer_nightshade.png" />
+	<icon name="diceskin_icon_artificer_rustediron" file="graphics/dice/diceskin_icon_artificer_rustediron.png" />
+	<icon name="diceskin_icon_artificer_stainedcopper" file="graphics/dice/diceskin_icon_artificer_stainedcopper.png" />
+	<icon name="diceskin_icon_artificer_storm" file="graphics/dice/diceskin_icon_artificer_storm.png" />
+	<icon name="diceskin_icon_artificer_whitegold" file="graphics/dice/diceskin_icon_artificer_whitegold.png" />
+
+	<icon name="diceskin_icon_annulusoffocus" file="graphics/dice/diceskin_icon_annulusoffocus.png" />
+	<icon name="diceskin_icon_annulusoffocus_boghollow" file="graphics/dice/diceskin_icon_annulusoffocus_boghollow.png" />
+	<icon name="diceskin_icon_annulusoffocus_dark" file="graphics/dice/diceskin_icon_annulusoffocus_dark.png" />
+	<icon name="diceskin_icon_annulusoffocus_floodvine" file="graphics/dice/diceskin_icon_annulusoffocus_floodvine.png" />
+	<icon name="diceskin_icon_annulusoffocus_frostboil" file="graphics/dice/diceskin_icon_annulusoffocus_frostboil.png" />
+	<icon name="diceskin_icon_annulusoffocus_gnarlwood" file="graphics/dice/diceskin_icon_annulusoffocus_gnarlwood.png" />
+	<icon name="diceskin_icon_annulusoffocus_gold" file="graphics/dice/diceskin_icon_annulusoffocus_gold.png" />
+	<icon name="diceskin_icon_annulusoffocus_hotoil" file="graphics/dice/diceskin_icon_annulusoffocus_hotoil.png" />
+	<icon name="diceskin_icon_annulusoffocus_light" file="graphics/dice/diceskin_icon_annulusoffocus_light.png" />
+	<icon name="diceskin_icon_annulusoffocus_midtone" file="graphics/dice/diceskin_icon_annulusoffocus_midtone.png" />
+	<icon name="diceskin_icon_annulusoffocus_mosswillow" file="graphics/dice/diceskin_icon_annulusoffocus_mosswillow.png" />
+	<icon name="diceskin_icon_annulusoffocus_sandycerulean" file="graphics/dice/diceskin_icon_annulusoffocus_sandycerulean.png" />
+	<icon name="diceskin_icon_annulusoffocus_scorchedsunset" file="graphics/dice/diceskin_icon_annulusoffocus_scorchedsunset.png" />
+	<icon name="diceskin_icon_annulusoffocus_stainedcopper" file="graphics/dice/diceskin_icon_annulusoffocus_stainedcopper.png" />
+	<icon name="diceskin_icon_annulusoffocus_steelthicket" file="graphics/dice/diceskin_icon_annulusoffocus_steelthicket.png" />
+	<icon name="diceskin_icon_annulusoffocus_sunlitcatalyst" file="graphics/dice/diceskin_icon_annulusoffocus_sunlitcatalyst.png" />
+	<icon name="diceskin_icon_annulusoffocus_timestop" file="graphics/dice/diceskin_icon_annulusoffocus_timestop.png" />
+	<icon name="diceskin_icon_annulusoffocus_tranquilcoral" file="graphics/dice/diceskin_icon_annulusoffocus_tranquilcoral.png" />
+	<icon name="diceskin_icon_annulusoffocus_verdantportal" file="graphics/dice/diceskin_icon_annulusoffocus_verdantportal.png" />
+
+	<icon name="diceskin_icon_knotsoffate" file="graphics/dice/diceskin_icon_knotsoffate.png" />
+	<icon name="diceskin_icon_knotsoffate_aquaticmirage" file="graphics/dice/diceskin_icon_knotsoffate_aquaticmirage.png" />
+	<icon name="diceskin_icon_knotsoffate_autumnentwined" file="graphics/dice/diceskin_icon_knotsoffate_autumnentwined.png" />
+	<icon name="diceskin_icon_knotsoffate_burnishedspice" file="graphics/dice/diceskin_icon_knotsoffate_burnishedspice.png" />
+	<icon name="diceskin_icon_knotsoffate_citrusinfusion" file="graphics/dice/diceskin_icon_knotsoffate_citrusinfusion.png" />
+	<icon name="diceskin_icon_knotsoffate_crimsonjadevortex" file="graphics/dice/diceskin_icon_knotsoffate_crimsonjadevortex.png" />
+	<icon name="diceskin_icon_knotsoffate_enigmaticseaweed" file="graphics/dice/diceskin_icon_knotsoffate_enigmaticseaweed.png" />
+	<icon name="diceskin_icon_knotsoffate_flamingtapestry" file="graphics/dice/diceskin_icon_knotsoffate_flamingtapestry.png" />
+	<icon name="diceskin_icon_knotsoffate_frostboil" file="graphics/dice/diceskin_icon_knotsoffate_frostboil.png" />
+	<icon name="diceskin_icon_knotsoffate_gildedmint" file="graphics/dice/diceskin_icon_knotsoffate_gildedmint.png" />
+	<icon name="diceskin_icon_knotsoffate_gold" file="graphics/dice/diceskin_icon_knotsoffate_gold.png" />
+	<icon name="diceskin_icon_knotsoffate_harmoniclilac" file="graphics/dice/diceskin_icon_knotsoffate_harmoniclilac.png" />
+	<icon name="diceskin_icon_knotsoffate_luminouslavender" file="graphics/dice/diceskin_icon_knotsoffate_luminouslavender.png" />
+	<icon name="diceskin_icon_knotsoffate_mysticchroma" file="graphics/dice/diceskin_icon_knotsoffate_mysticchroma.png" />
+	<icon name="diceskin_icon_knotsoffate_radiantcoral" file="graphics/dice/diceskin_icon_knotsoffate_radiantcoral.png" />
+	<icon name="diceskin_icon_knotsoffate_rustediron" file="graphics/dice/diceskin_icon_knotsoffate_rustediron.png" />
+	<icon name="diceskin_icon_knotsoffate_sandstoneswirl" file="graphics/dice/diceskin_icon_knotsoffate_sandstoneswirl.png" />
+	<icon name="diceskin_icon_knotsoffate_sizzlingamber" file="graphics/dice/diceskin_icon_knotsoffate_sizzlingamber.png" />
+	<icon name="diceskin_icon_knotsoffate_stainedcopper" file="graphics/dice/diceskin_icon_knotsoffate_stainedcopper.png" />
+	<icon name="diceskin_icon_knotsoffate_vividspring" file="graphics/dice/diceskin_icon_knotsoffate_vividspring.png" />
+
+	<icon name="diceskin_icon_blood" file="graphics/dice/diceskin_icon_blood.png" />
+	<icon name="diceskin_icon_blood_tintable" file="graphics/dice/diceskin_icon_blood_tintable.png" />
+
+	<icon name="diceskin_icon_clover" file="graphics/dice/diceskin_icon_clover.png" />
+	<icon name="diceskin_icon_clover_red" file="graphics/dice/diceskin_icon_clover_red.png" />
+	<icon name="diceskin_icon_heart" file="graphics/dice/diceskin_icon_heart.png" />
+	<icon name="diceskin_icon_heart_purple" file="graphics/dice/diceskin_icon_heart_purple.png" />
+	<icon name="diceskin_icon_skull" file="graphics/dice/diceskin_icon_skull.png" />
+	<icon name="diceskin_icon_star" file="graphics/dice/diceskin_icon_star.png" />
+	<icon name="diceskin_icon_star_orange" file="graphics/dice/diceskin_icon_star_orange.png" />
+
+	<icon name="diceskin_element_arcane" file="graphics/dice/diceskin_element_arcane.png" />
+	<icon name="diceskin_element_earth" file="graphics/dice/diceskin_element_earth.png" />
+	<icon name="diceskin_element_fire" file="graphics/dice/diceskin_element_fire.png" />
+	<icon name="diceskin_element_frost" file="graphics/dice/diceskin_element_frost.png" />
+	<icon name="diceskin_element_life" file="graphics/dice/diceskin_element_life.png" />
+	<icon name="diceskin_element_light" file="graphics/dice/diceskin_element_light.png" />
+	<icon name="diceskin_element_lightning" file="graphics/dice/diceskin_element_lightning.png" />
+	<icon name="diceskin_element_shadow" file="graphics/dice/diceskin_element_shadow.png" />
+	<icon name="diceskin_element_storm" file="graphics/dice/diceskin_element_storm.png" />
+	<icon name="diceskin_element_water" file="graphics/dice/diceskin_element_water.png" />
+
+	<icon name="diceskin_badge_artificer" file="graphics/dice/diceskin_badge_artificer.png" />
+	<icon name="diceskin_badge_decorative" file="graphics/dice/diceskin_badge_decorative.png" />
+	<icon name="diceskin_badge_clover" file="graphics/dice/diceskin_badge_clover.png" />
+	<icon name="diceskin_badge_heart" file="graphics/dice/diceskin_badge_heart.png" />
+	<icon name="diceskin_badge_skull" file="graphics/dice/diceskin_badge_skull.png" />
+	<icon name="diceskin_badge_star" file="graphics/dice/diceskin_badge_star.png" />
+
+	<icon name="diceskin_attribute_aura" file="graphics/dice/diceskin_attribute_aura.png" />
+	<icon name="diceskin_attribute_auracast" file="graphics/dice/diceskin_attribute_auracast.png" />
+	<icon name="diceskin_attribute_forcefield" file="graphics/dice/diceskin_attribute_forcefield.png" />
+	<icon name="diceskin_attribute_impact" file="graphics/dice/diceskin_attribute_impact.png" />
+	<icon name="diceskin_attribute_tintable" file="graphics/dice/diceskin_attribute_tintable.png" />
+	<icon name="diceskin_attribute_trail" file="graphics/dice/diceskin_attribute_trail.png" />
+</root>

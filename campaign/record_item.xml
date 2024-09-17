@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<!-- 
+  Please see the license.html file included with this distribution for 
+  attribution and copyright information.
+-->
+
+<root>
+	<windowclass name="item" copy="record_window">
+		<minimize>minimized_item</minimize>
+	</windowclass>
+	<windowclass name="item_header" copy="record_header_id" /> 
+
+	<windowclass name="item_main">
+		<margins control="0,0,0,2" />
+		<script file="campaign/scripts/item_main.lua" />
+		<sheetdata>
+			<anchor_column name="columnanchor" />
+
+			<label_column name="nonid_name_label">
+				<static textres="item_label_unidentified" />
+			</label_column>
+			<string_columnh name="nonid_name" />
+			
+			<label_column name="nonid_notes_label">
+				<static textres="item_label_unidentifiednotes" />
+			</label_column>
+			<string_columnh name="nonid_notes" />
+
+			<line_column name="divider" />
+
+			<label_column name="cost_label">
+				<static textres="item_label_cost" />
+			</label_column>
+			<string_columnh name="cost" />
+
+			<label_column name="weight_label">
+				<static textres="item_label_weight" />
+			</label_column>
+			<number_columnh name="weight" />
+
+			<line_column name="divider2" />
+
+			<ft_columnh name="notes" />
+
+ 			<sub_column name="sub_subitems" />
+		</sheetdata>
+	</windowclass>
+
+	<windowclass name="item_main_subitems">
+		<script>
+			function update(bReadOnly)
+				subitems.update(bReadOnly);
+			end
+		</script>
+		<sheetdata>
+			<anchor_column name="columnanchor" />
+			
+			<header_column name="subitems_header">
+				<static textres="item_label_subitems" />
+			</header_column>
+			<button_iedit name="subitems_iedit">
+				<anchored to="subitems_header" position="righthigh" offset="-20,0" />
+				<target>subitems</target>
+			</button_iedit>
+			<button_iadd name="subitems_iadd">
+				<anchored to="subitems_iedit" position="lefthigh" offset="5,0" />
+				<target>subitems</target>
+			</button_iadd>
+			<list_column name="subitems">
+				<datasource>.subitems</datasource>
+				<sortby><control>name</control></sortby>
+				<class>item_main_subitems_item</class>
+			</list_column>
+		</sheetdata>
+	</windowclass>
+
+	<windowclass name="item_main_subitems_item">
+		<margins control="0,0,0,2" />
+		<script>
+			function update(bReadOnly)
+				count.setReadOnly(bReadOnly);
+				name.setReadOnly(bReadOnly);
+			end
+		</script>
+		<sheetdata>
+			<anchor_listitem_left_sm name="leftanchor" />
+			<number_listitem_left name="count" />
+
+			<anchor_listitem_right_sm name="rightanchor" />
+			<link_listitem_right name="link" />
+			<button_listitem_idelete name="idelete" />
+
+			<string_listitem_center name="name">
+				<font>sheetlabel</font>
+				<empty textres="library_recordtype_empty_item" />
+			</string_listitem_center>
+		</sheetdata>
+	</windowclass>
+</root>

@@ -1,0 +1,711 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+
+<!-- 
+  Please see the license.html file included with this distribution for 
+  attribution and copyright information.
+-->
+
+<root>
+	<!-- Templated Windows -->
+	<windowclass name="record_window">
+		<frame>recordsheet</frame>
+		<placement>
+			<size width="400" height="500" />
+		</placement>
+		<sizelimits>
+			<minimum width="350" height="350" />
+			<dynamic />
+		</sizelimits>
+		<minimize>minimized_reference</minimize>
+		<sharable />
+		<tooltip field="name" />
+		<script file="common/scripts/record_window.lua" />
+		<sheetdata>
+			<windowmenubar_recordsheet name="menubar" />
+
+			<anchor_content_recordsheet_top name="contentanchor" />
+			<anchor_content_recordsheet_bottom name="bottomanchor" />
+
+			<!-- NOTE: Legacy override short term for layout -->
+			<sub_content_framed_groupbox_top name="header">
+				<anchored to="contentanchor">
+					<left offset="10" />
+					<right offset="-10" />
+					<top relation="relative" offset="10" postoffset="10" />
+				</anchored>
+				<frame name="groupbox" offset="10,10,10,10" />
+				<class>record_header</class>
+			</sub_content_framed_groupbox_top>
+
+			<sub_content_framed_groupbox name="content" />
+			<scrollbar_content />
+
+			<resize_recordsheet />
+		</sheetdata>
+	</windowclass>
+	<windowclass name="record_window_tabbed">
+		<frame>recordsheet</frame>
+		<placement>
+			<size width="400" height="500" />
+		</placement>
+		<sizelimits>
+			<minimum width="350" height="350" />
+			<dynamic />
+		</sizelimits>
+		<minimize>minimized_reference</minimize>
+		<sharable />
+		<tooltip field="name" />
+		<script file="common/scripts/record_window_tabbed.lua" />
+		<sheetdata>
+			<windowmenubar_recordsheet name="menubar" />
+			<resize_recordsheet />
+
+			<anchor_content_recordsheet_tabbed_top name="contentanchor" />
+			<anchor_content_recordsheet_bottom name="bottomanchor" />
+
+			<!-- NOTE: Legacy override short term for layout -->
+			<sub_content_framed_groupbox_top name="header">
+				<anchored to="contentanchor">
+					<left offset="10" />
+					<right offset="-10" />
+					<top relation="relative" offset="10" postoffset="10" />
+				</anchored>
+				<frame name="groupbox" offset="10,10,10,10" />
+				<class>record_header</class>
+			</sub_content_framed_groupbox_top>
+		</sheetdata>
+	</windowclass>
+	<windowclass name="record_window_text" copy="record_window">
+		<sheetdata>
+			<sub_content_framed_groupbox name="content">
+				<class>record_content_text</class>
+			</sub_content_framed_groupbox>
+		</sheetdata>
+	</windowclass>
+	<windowclass name="record_window_text_string" copy="record_window">
+		<sheetdata>
+			<sub_content_framed_groupbox name="content">
+				<class>record_content_text_string</class>
+			</sub_content_framed_groupbox>
+		</sheetdata>
+	</windowclass>
+
+	<windowclass name="record_window_story">
+		<frame>storybox</frame>
+		<placement>
+			<size width="400" height="650" />
+		</placement>
+		<sizelimits>
+			<minimum width="350" height="350" />
+			<dynamic />
+		</sizelimits>
+		<minimize>minimized_note</minimize>
+		<sharable />
+		<tooltip field="name" />
+		<script file="common/scripts/record_window.lua" />
+		<sheetdata>
+			<windowmenubar_storybox name="menubar" />
+
+			<anchor_content_storybox_top name="contentanchor" />
+			<anchor_content_storybox_bottom name="bottomanchor" />
+
+			<!-- NOTE: Legacy override short term for layout -->
+			<sub_content_framed_groupbox_top name="header">
+				<anchored to="contentanchor">
+					<left offset="10" />
+					<right offset="-10" />
+					<top relation="relative" offset="10" postoffset="10" />
+				</anchored>
+				<frame name="groupbox" offset="10,10,10,10" />
+				<class>record_header_story</class>
+			</sub_content_framed_groupbox_top>
+
+			<sub_content_framed_groupbox_bottom name="sub_paging">
+				<anchored height="30" />
+				<class>record_paging_story</class>
+			</sub_content_framed_groupbox_bottom>
+
+			<sub_content_framed_groupbox name="content">
+				<class>record_content_story</class>
+			</sub_content_framed_groupbox>
+			<scrollbar_content />
+
+			<resize_storybox />
+		</sheetdata>
+	</windowclass>
+	<windowclass name="record_window_story" merge="join">
+		<script file="campaign/scripts/story.lua" />
+	</windowclass>
+	<windowclass name="record_paging_story">
+		<sheetdata>
+			<button_content_page_top>
+				<anchored>
+					<top anchor="center" offset="-10" />
+					<left anchor="center" offset="-10" />
+				</anchored>
+				<script>
+					function onButtonPress()
+						WindowManager.callOuterWindowFunction(window, "handlePageTop");
+						return true;
+					end
+				</script>
+			</button_content_page_top>
+			<button_content_page_prev>
+				<anchored>
+					<top anchor="center" offset="-10" />
+					<right anchor="center" offset="-40" />
+				</anchored>
+				<script>
+					function onButtonPress()
+						WindowManager.callOuterWindowFunction(window, "handlePagePrev");
+						return true;
+					end
+				</script>
+			</button_content_page_prev>
+			<button_content_page_next>
+				<anchored>
+					<top anchor="center" offset="-10" />
+					<left anchor="center" offset="40" />
+				</anchored>
+				<script>
+					function onButtonPress()
+						WindowManager.callOuterWindowFunction(window, "handlePageNext");
+						return true;
+					end
+				</script>
+			</button_content_page_next>
+		</sheetdata>
+	</windowclass>
+
+	<!-- Templated Headers -->
+	<windowclass name="record_header">
+		<margins control="0,0,0,5" />
+		<script file="common/scripts/record_header.lua" />
+		<sheetdata>
+			<anchor_content_record_header_top />
+			<anchor_content_record_header_left />
+			<anchor_content_record_header_right />
+			<icon_record_header_type name="recordtype" />
+			<string_record_header_name name="name" />
+		</sheetdata>
+	</windowclass>
+	<windowclass name="record_header_token" copy="record_header">
+		<sheetdata>
+			<picture_record_header name="token" insertbefore="name" />
+		</sheetdata>
+	</windowclass>
+	<windowclass name="record_header_id">
+		<margins control="0,0,0,5" />
+		<script file="common/scripts/record_header.lua" />
+		<sheetdata>
+			<anchor_content_record_header_top />
+			<anchor_content_record_header_left />
+			<anchor_content_record_header_right />
+			<icon_record_header_type name="recordtype" />
+			<string_record_header_name name="name" />
+			<string_record_header_name name="nonid_name" />
+		</sheetdata>
+	</windowclass>
+	<windowclass name="record_header_id_token" copy="record_header_id">
+		<sheetdata>
+			<picture_record_header name="token" insertbefore="name" />
+		</sheetdata>
+	</windowclass>
+	<windowclass name="record_header_sub_nonid_edit">
+		<margins control="0,0,0,2" />
+		<script>
+			function onInit()
+				self.update();
+			end
+			function update()
+				local nodeRecord = getDatabaseNode();
+				local bReadOnly = WindowManager.getReadOnlyState(nodeRecord);
+				nonid_name.setReadOnly(bReadOnly);
+			end
+		</script>
+		<sheetdata>
+			<anchor_listitem_left_sm />
+			<anchor_listitem_right_sm />
+			<icon_record_header_nonid name="nonid_icon" />
+			<string_record_header_nonid_name_edit name="nonid_name" />
+		</sheetdata>
+	</windowclass>
+
+	<windowclass name="record_header_story">
+		<margins control="0,0,0,5" />
+		<script file="common/scripts/record_header.lua" />
+		<sheetdata>
+			<anchor_content_record_header_top />
+			<anchor_content_record_header_left />
+			<anchor_content_record_header_right />
+			<icon_record_header_type name="recordtype" />
+			<string_record_header_name_story name="name" />
+		</sheetdata>
+	</windowclass>
+
+	<!-- Templated Content -->
+	<windowclass name="record_context_text_base">
+		<script file="common/scripts/record_content_text.lua" />
+		<sheetdata>
+			<anchor_content_top />
+		</sheetdata>
+	</windowclass>
+	<windowclass name="record_content_text" copy="record_context_text_base">
+		<sheetdata>
+			<ft_content_noframe_noscroll_top name="text" />
+		</sheetdata>
+	</windowclass>
+	<windowclass name="record_content_notes" copy="record_context_text_base">
+		<target>notes</target>
+		<sheetdata>
+			<ft_content_noframe_noscroll_top name="notes" />
+		</sheetdata>
+	</windowclass>
+	<windowclass name="record_content_description" copy="record_context_text_base">
+		<target>description</target>
+		<sheetdata>
+			<ft_content_noframe_noscroll_top name="description" />
+		</sheetdata>
+	</windowclass>
+	<windowclass name="record_content_text_string" copy="record_context_text_base">
+		<sheetdata>
+			<string_content_noframe_noscroll_top name="text">
+				<empty textres="ft_empty" hidereadonly="true" />
+			</string_content_noframe_noscroll_top>
+		</sheetdata>
+	</windowclass>
+
+	<windowclass name="record_content_story" copy="record_context_text_base">
+		<skipid />
+		<sheetdata>
+			<ft_content_noframe_noscroll_top name="text">
+				<script>
+					function onLinkActivated(sClass, sRecord)
+						StoryManager.onLinkActivated(window, sClass, sRecord);
+					end
+				</script>
+			</ft_content_noframe_noscroll_top>
+		</sheetdata>
+	</windowclass>
+
+	<!-- Templates -->
+	<template name="anchor_content_record_header_top">
+		<genericcontrol name="contentanchor">
+			<anchored height="0">
+				<top offset="0" />
+				<left offset="0" />
+				<right offset="0" />
+			</anchored>
+			<disabled />
+		</genericcontrol>
+	</template>
+	<template name="anchor_content_record_header_left">
+		<genericcontrol name="leftanchor">
+			<anchored to="contentanchor" height="0" width="0">
+				<top relation="current" offset="5" />
+				<left />
+			</anchored>
+		</genericcontrol>
+	</template>
+	<template name="anchor_content_record_header_right">
+		<genericcontrol name="rightanchor">
+			<anchored to="contentanchor" height="0" width="0">
+				<top relation="current" offset="5" />
+				<right />
+			</anchored>
+		</genericcontrol>
+	</template>
+	<template name="icon_record_header_base">
+		<genericcontrol>
+			<anchored to="leftanchor" width="20" height="20">
+				<top offset="4" />
+				<left relation="relative" offset="5" postoffset="5" />
+			</anchored>
+			<frame name="fieldlight" offset="5,5,5,5" />
+		</genericcontrol>
+	</template>
+	<template name="icon_record_header_type">
+		<icon_record_header_base>
+			<invisible />
+			<script>
+				function onInit()
+					self.updateDisplay();
+				end
+				function getRecordType()
+					return WindowManager.getRecordType(window);
+				end
+				function updateDisplay()
+					local sRecordType = self.getRecordType();
+					if sRecordType ~= "" then
+						local sIcon = "sidebar_icon_recordtype_" .. sRecordType;
+						if Interface.isIcon(sIcon) then
+							setIcon(sIcon);
+						else
+							setIcon("sidebar_icon_default");
+						end
+						local sFont = string.format("%s_header", UtilityManager.getTopWindow(window).getFrame());
+						if not Interface.isFont(sFont) then
+							sFont = "recordsheet_header";
+						end
+						setColor(Interface.getFontColor(sFont));
+						setTooltipText(LibraryData.getSingleDisplayText(sRecordType));
+						setVisible(true);
+					else
+						setVisible(false);
+					end
+				end
+			</script>
+		</icon_record_header_base>
+	</template>
+	<template name="string_record_header_name">
+		<string_content_base>
+			<anchored>
+				<left parent="leftanchor" relation="relative" offset="10" postoffset="10" />
+				<right parent="rightanchor" relation="relative" offset="-10" postoffset="-10" />
+				<top relation="relative" offset="5" postoffset="5" />
+			</anchored>
+			<font>recordsheet_header</font>
+			<multilinespacing>28</multilinespacing>
+			<nodrag />
+			<delaykeyupdate />
+			<script>
+				function onValueChanged()
+					WindowManager.callOuterWindowFunction(window, "onNameUpdated");
+				end
+			</script>
+		</string_content_base>
+	</template>
+	<template name="string_record_header_name_image">
+		<string_record_header_name>
+			<anchored height="28">
+				<top relation="current" offset="5" />
+			</anchored>
+			<font>imagebox_header</font>
+			<multilinespacing merge="delete" />
+		</string_record_header_name>
+	</template>
+	<template name="string_record_header_name_story">
+		<string_record_header_name>
+			<font>storybox_header</font>
+			<multilinespacing>28</multilinespacing>
+		</string_record_header_name>
+	</template>
+	<template name="area_content_record_header_details">
+		<area_content_top name="area_details">
+			<anchored height="20">
+				<top offset="5" />
+				<left offset="30" />
+			</anchored>
+		</area_content_top>
+	</template>
+	<template name="linkc_record_header">
+		<linkcontrol_static>
+			<anchored to="leftanchor" width="20" height="20">
+				<top offset="4" />
+				<left relation="relative" offset="2" postoffset="2" />
+			</anchored>
+		</linkcontrol_static>
+	</template>
+	<template name="toolbar_toggle_header_right">
+		<toolbar_toggle_right>
+			<anchored>
+				<top offset="4" />
+			</anchored>
+			<initbyname />
+		</toolbar_toggle_right>
+	</template>
+	<template name="toolbar_field_header_right">
+		<toolbar_field_right>
+			<anchored>
+				<top offset="4" />
+			</anchored>
+			<initbyname />
+		</toolbar_field_right>
+	</template>
+	<template name="toolbar_action_header_right">
+		<toolbar_action_right>
+			<anchored>
+				<top offset="4" />
+			</anchored>
+			<initbyname />
+		</toolbar_action_right>
+	</template>
+
+	<template name="sub_record_header_nonid_edit">
+		<sub_content_column_hidden name="sub_nonid_edit">
+			<class>record_header_sub_nonid_edit</class>
+		</sub_content_column_hidden>
+	</template>
+	<template name="icon_record_header_nonid">
+		<icon_record_header_base name="nonid_icon">
+			<anchored>
+				<top offset="0" />
+			</anchored>
+			<icon>button_toolbar_id_false</icon>
+			<tooltip textres="library_recordtype_empty_nonid" />
+			<script>
+				function onInit()
+					if window.name then
+						setColor(Interface.getFontColor(window.nonid_name.getFont()));
+					else
+						setColor("000000")
+					end
+				end
+			</script>
+		</icon_record_header_base>
+	</template>
+	<template name="string_record_header_nonid_name_edit">
+		<string_listitem_center>
+			<nodrag />
+			<delaykeyupdate />
+			<script>
+				function onValueChanged()
+					WindowManager.callOuterWindowFunction(window, "onNameUpdated");
+				end
+			</script>
+		</string_listitem_center>
+	</template>
+
+	<template name="sub_record_nonid_notes">
+		<sub_content_column_hidden name="sub_nonid">
+			<class>record_nonid_notes</class>
+		</sub_content_column_hidden>
+	</template>
+	<windowclass name="record_nonid_notes">
+		<margins control="0,0,0,5" />
+		<script>
+			function update(bReadOnly, bID)
+				WindowManager.callSafeControlUpdate(self, "nonidentified", bReadOnly);
+				divider.setVisible(Session.IsHost);
+				parentcontrol.setVisible(WindowManager.getAnyControlVisible(self, { "nonid_name", "nonidentified", }));
+			end
+		</script>
+		<sheetdata>
+			<anchor_content_top />
+
+			<label_content_column name="nonidentified_label">
+				<static textres="item_label_unidentifiednotes" />
+			</label_content_column>
+			<string_content_columnh name="nonidentified" />
+			
+			<line_content_top name="divider" />
+		</sheetdata>
+	</windowclass>
+
+	<template name="sub_record_automation">
+		<sub_content_column_hidden name="sub_automation">
+			<class>record_automation_key</class>
+		</sub_content_column_hidden>
+	</template>
+	<windowclass name="record_automation_key">
+		<margins control="0,0,0,5" />
+		<script>
+			function update(bReadOnly, bID)
+				WindowManager.callSafeControlUpdate(self, "key", bReadOnly);
+				parentcontrol.setVisible(not bReadOnly);
+			end
+		</script>
+		<sheetdata>
+			<anchor_content_top />
+
+			<header_content_framed_headersimple name="header">
+				<static textres="record_header_automation"/>
+			</header_content_framed_headersimple>
+
+			<label_content_column name="key_label">
+				<static textres="record_label_key" />
+			</label_content_column>
+			<string_content_column name="key" />
+		</sheetdata>
+	</windowclass>
+	<template name="automation_content_column">
+		<string_content_column>
+			<script>
+				function onDoubleClick()
+					if Input.isShiftPressed() then
+						AutomationManager.processField({ sField = getValue(), sMode = "create", });
+						return true;
+					end
+				end
+			</script>
+		</string_content_column>
+	</template>
+	<template name="automation_content_column_full">
+		<string_content_column_full>
+			<script>
+				function onDoubleClick()
+					if Input.isShiftPressed() then
+						AutomationManager.processField({ sField = getValue(), sMode = "create", });
+						return true;
+					end
+				end
+			</script>
+		</string_content_column_full>
+	</template>
+	<template name="string_listitem_automation_static">
+		<string_listitem_noframe_static_base>
+			<anchored to="name" position="below" offset="-5,0" />
+			<multilinespacing>20</multilinespacing>
+			<invisible />
+			<script>
+				function onInit()
+					self.onValueChanged();
+				end
+				function onValueChanged()
+					setVisible(getValue() ~= "");
+				end
+			</script>
+		</string_listitem_noframe_static_base>
+	</template>
+
+	<!-- Templates - Image -->
+	<template name="spacer_record_name_image">
+		<spacer_content_top>
+			<anchored height="38" />
+		</spacer_content_top>
+	</template>
+	<template name="anchor_content_image_left">
+		<genericcontrol name="leftanchor">
+			<anchored to="contentanchor" height="0" width="0">
+				<top relation="current" />
+				<left />
+			</anchored>
+		</genericcontrol>
+	</template>
+	<template name="anchor_content_image_right">
+		<genericcontrol name="rightanchor">
+			<anchored to="contentanchor" height="0" width="0">
+				<top relation="current" />
+				<right />
+			</anchored>
+		</genericcontrol>
+	</template>
+	<template name="image_record_step">
+		<imagecontrol name="image">
+			<default snap="on" />
+			<script file="campaign/scripts/image.lua" />
+		</imagecontrol>
+	</template>
+	<template name="imagedata_record_step">
+		<imagedatacontrol>
+			<invisible />
+			<color>38331B</color>
+			<backcolor>E6DFB8</backcolor>
+		</imagedatacontrol>
+	</template>
+	<template name="image_content">
+		<image_record_step>
+			<anchored>
+				<top parent="contentanchor" relation="current" />
+				<bottom parent="bottomanchor" relation="current" />
+				<left parent="leftanchor" relation="relative" />
+				<right parent="rightanchor" relation="relative" />
+			</anchored>
+		</image_record_step>
+	</template>
+	<template name="imagedata_content">
+		<imagedata_record_step>
+			<anchored width="288">
+				<top parent="contentanchor" relation="current" />
+				<bottom parent="bottomanchor" relation="current" />
+				<right parent="rightanchor" relation="relative" />
+			</anchored>
+		</imagedata_record_step>
+	</template>
+	<template name="sub_image_token_detail">
+		<subwindow>
+			<frame name="image_token_detail" />
+		</subwindow>
+	</template>
+	<template name="sub_image_hover_token_detail">
+		<sub_image_token_detail>
+			<anchored to="image" position="insidetopright" offset="5,5" width="120" height="125" />
+			<disabled />
+		</sub_image_token_detail>
+	</template>
+	<template name="sub_image_view_token_detail">
+		<sub_image_token_detail>
+			<anchored to="image" width="120" height="125">
+				<left anchor="center" offset="-60" />
+				<bottom offset="-5" />
+			</anchored>
+		</sub_image_token_detail>
+	</template>
+	<template name="sub_image_camera_controls">
+		<subwindow>
+			<anchored to="image" position="insidebottomright" offset="2,2" width="129" height="64" />
+			<frame name="image_token_detail" />
+			<class>image_camera_controls</class>
+		</subwindow>
+	</template>
+	<template name="button_image_camera_move">
+		<button_icon>
+			<anchored position="insidetopleft" />
+			<tintable />
+			<script>
+				function onClickDown()
+					local cImage = WindowManager.callOuterWindowFunction(self, "getImage");
+					cImage.setFocus();
+					WindowManager.callOuterWindowFunction(window, "onStartCameraDirection", direction[1]);
+					return true;
+				end
+				function onClickRelease()
+					WindowManager.callOuterWindowFunction(window, "onEndCameraDirection", direction[1]);
+				end
+				function onDragEnd()
+					WindowManager.callOuterWindowFunction(window, "onEndCameraDirection", direction[1]);
+				end
+				function updateTooltip(sViewMode)
+					if (sViewMode or "") == "" then
+						setTooltipText(Interface.getString("image_tooltip_" .. direction[1]));
+					else
+						setTooltipText(Interface.getString("image_tooltip_" .. direction[1] .. "_viewcamera"));
+					end
+				end
+			</script>
+		</button_icon>
+	</template>
+	<template name="list_viewers">
+		<genericcontrol>
+			<anchored to="bottomanchor" position="aboveleft" />
+			<portraitset>charlist</portraitset>
+			<portraitspacing>22</portraitspacing>
+			<script file="common/scripts/list_viewers.lua" />
+		</genericcontrol>
+	</template>
+
+	<!-- Templates - Legacy -->
+	<template name="subwindow_record">
+		<subwindow>
+			<anchored to="contentframe" position="over" />
+		</subwindow>
+	</template>
+	<template name="scrollbar_record">
+		<scrollbar>
+			<anchored to="contentframe" />
+		</scrollbar>
+	</template>
+	<template name="ft_record">
+		<simpleft />
+	</template>
+	<template name="button_record_isidentified">
+		<buttoncontrol name="isidentified">
+			<anchored to="rightanchor" width="20" height="20">
+				<top />
+				<right anchor="left" relation="relative" offset="-5" />
+			</anchored>
+			<state icon="record_unidentified" tooltipres="tooltip_nonid" />
+			<state icon="record_identified" tooltipres="tooltip_id" />
+			<gmeditonly />
+			<gmvisibleonly />
+			<script file="common/scripts/button_record_isidentified.lua" />
+		</buttoncontrol>
+	</template>
+	<template name="hidden_record_isidentified">
+		<genericcontrol>
+			<bounds>0,0,0,0</bounds>
+			<invisible />
+			<script file="common/scripts/hidden_record_isidentified.lua" />
+		</genericcontrol>
+	</template>
+</root>
